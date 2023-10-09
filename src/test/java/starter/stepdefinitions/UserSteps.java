@@ -15,6 +15,9 @@ public class UserSteps {
     @Steps
     Post_Register post_register;
 
+    @Steps
+    Put put;
+
     @Given("I set POST api endpoint")
     public void setPostApiEndpoints() {
         post.setPostApiEndpoint();
@@ -46,5 +49,20 @@ public class UserSteps {
 
     @And("I receive valid data for register")
     public void validateDataRegister() {post_register.validateDataRegister();}
+
+    @Given("I set PUT api endpoint")
+    public void setPutApiEndpoints() {
+        put.setPutApiEndpoint();
+    }
+
+    @When("I send PUT HTTP request")
+    public void setPutHttpRequest() {
+        put.sendPutHttpRequest();
+    }
+
+    @And("I receive valid data for updated user")
+    public void validateDataUpdatedUser() {
+        put.validateDataUpdatedUser();
+    }
 
 }

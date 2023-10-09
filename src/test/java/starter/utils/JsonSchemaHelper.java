@@ -30,4 +30,15 @@ public class JsonSchemaHelper {
         }
     }
 
+    public String getPutResponseSchema() {
+        String path = "schema/put_response_schema.json";
+        try {
+            InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(path);
+            if (inputStream == null) throw new AssertionError();
+            return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read response schema file.", e);
+        }
+    }
+
 }
